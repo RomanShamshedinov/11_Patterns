@@ -1,13 +1,19 @@
-package generators;
+package person;
 
 import static utils.FileReader.getLinesFromFile;
 import static utils.MyMath.getDigitsSum;
 
-public class FioGenerator {
+public class Fio {
 
-    private String lastName;
-    private String firstName;
-    private String middleName;
+    final private String lastName;
+    final private String firstName;
+    final private String middleName;
+
+    private Fio(String lastName, String firstName, String middleName){
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.middleName = middleName;
+    }
 
     /**
      * ФИО берутся из соответствующих файлов по индексу в листе:
@@ -17,12 +23,14 @@ public class FioGenerator {
      *
      * @param code код для генерации
      */
-    public final void generateParams(final int code) {
+
+    public static Fio getFio(final int code) {
         final int lastNameIndex = getDigitsSum(code);
         final String sex = (lastNameIndex % 2 == 0) ? "f" : "m";
-        setLastNameFromFile(lastNameIndex, sex);
-        setFirstNameFromFile(getDigitsSum(code / 100), sex);
-        setMiddleNameFromFile(getDigitsSum(code % 100), sex);
+        String lastName = getLinesFromFile("lastNames_" + sex).get(lastNameIndex);
+        String firstName = getLinesFromFile("names_" + sex).get(getDigitsSum(code / 100));
+        String middleName = getLinesFromFile("middleNames_" + sex).get(getDigitsSum(code % 100));
+        return new Fio(lastName, firstName, middleName);
     }
 
     public final String getLastName() {
@@ -37,16 +45,6 @@ public class FioGenerator {
         return middleName;
     }
 
-    private void setLastNameFromFile(final int i, final String sex) {
-        lastName = getLinesFromFile("lastNames_" + sex).get(i);
-    }
 
-    private void setFirstNameFromFile(final int i, final String sex) {
-        firstName = getLinesFromFile("names_" + sex).get(i);
-    }
-
-    private void setMiddleNameFromFile(final int i, final String sex) {
-        middleName = getLinesFromFile("middleNames_" + sex).get(i);
-    }
 }
 
