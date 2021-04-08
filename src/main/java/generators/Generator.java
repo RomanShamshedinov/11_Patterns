@@ -2,7 +2,7 @@ package generators;
 
 public abstract class Generator<T> {
 
-    public final T createItem(int input){
+    public final T createItem(final int input) {
         return develop(input);
     }
 

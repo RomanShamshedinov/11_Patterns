@@ -12,7 +12,7 @@ public class PhysGenerator extends Generator<Physical> {
      */
 
     @Override
-    protected Physical develop(int code) {
+    protected Physical develop(final int code) {
         final int i = code % 1000 / 100;
         int age = (i + 1) * 10;
         int weight = 30 + i * 10;

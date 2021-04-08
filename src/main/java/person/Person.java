@@ -14,7 +14,10 @@ public class Person {
     public final String toString() {
         final StringBuilder sb = new StringBuilder()
                 .append(id).append("\n")
-                .append(String.format("%1$s %2$s %3$s", fio.getLastName(), fio.getFirstName(), fio.getMiddleName())).append("\n")
+                .append(String.format("%1$s %2$s %3$s",
+                        fio.getLastName(),
+                        fio.getFirstName(),
+                        fio.getMiddleName())).append("\n")
                 .append(phys).append("\n")
                 .append(appearance).append("\n");
         if (phone != null) {

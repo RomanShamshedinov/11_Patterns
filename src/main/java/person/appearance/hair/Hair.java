@@ -1,18 +1,16 @@
 package person.appearance.hair;
 
-import java.util.HashMap;
-
 public class Hair {
-    private static final String[] colors = {
-            "чёрные"
-            , "каштановые"
-            , "рыжие"
-            ,"светлые"
-            , "седые"
-            , "розовые"
-            , "зелёные"
-            , "фиолетовые"
-            , "синие"};
+    private static final String[] COLORS = {
+            "чёрные",
+            "каштановые",
+            "рыжие",
+            "светлые",
+            "седые",
+            "розовые",
+            "зелёные",
+            "фиолетовые",
+            "синие"};
 
     private final String color;
     private final int longHair;
@@ -22,9 +20,9 @@ public class Hair {
         this.longHair = longHair;
     }
 
-    public static String getColor(int code){
+    public static String getColor(final int code) {
         if (code > 0) {
-            return colors[code-1];
+            return COLORS[code - 1];
         }
         return null;
     }
@@ -35,7 +33,7 @@ public class Hair {
         if (longHair > 0) {
             if (longHair > 4) {
                 result += "длинные, ";
-            } else{
+            } else {
                 result += "короткие, ";
             }
             return result + color;

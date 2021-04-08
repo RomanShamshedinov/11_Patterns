@@ -7,7 +7,7 @@ public final class EyesColor {
     private static final String GRAY = "серые";
     private static final String DIFF = "разные";
 
-    public static String getColorEyes(int i){
+    public static String getColorEyes(final int i) {
         switch (i / 2) {
             case 0:
                 return EyesColor.BLUE;

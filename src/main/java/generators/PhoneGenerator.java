@@ -12,7 +12,7 @@ public class PhoneGenerator extends Generator<Phone> {
      * +79[сумма цифр в коде][3 случайных числа][код].
      */
     @Override
-    protected Phone develop(int code) {
+    protected Phone develop(final int code) {
         String sCode = String.valueOf(code);
         if (!(sCode.equals(new StringBuilder(sCode).reverse().toString()))) {
             String number = "+79"

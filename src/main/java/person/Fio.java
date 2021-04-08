@@ -3,13 +3,13 @@ package person;
 import static utils.FileReader.getLinesFromFile;
 import static utils.MyMath.getDigitsSum;
 
-public class Fio {
+public final class Fio {
 
-    final private String lastName;
-    final private String firstName;
-    final private String middleName;
+    private final String lastName;
+    private final String firstName;
+    private final String middleName;
 
-    private Fio(String lastName, String firstName, String middleName){
+    private Fio(final String lastName, final String firstName, final String middleName) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -22,6 +22,7 @@ public class Fio {
      * Отчество - сумма последних двух цифр.
      *
      * @param code код для генерации
+     * @return new Fio - ФИО из списков
      */
 
     public static Fio getFio(final int code) {
@@ -33,15 +34,15 @@ public class Fio {
         return new Fio(lastName, firstName, middleName);
     }
 
-    public final String getLastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    public final String getFirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public final String getMiddleName() {
+    public String getMiddleName() {
         return middleName;
     }
 

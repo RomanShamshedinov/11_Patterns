@@ -3,33 +3,33 @@ package person;
 import person.appearance.Appearance;
 
 public class PersonBuilder {
-    private String id;
+    private final String id;
     private Fio fio;
     private Physical phys;
     private Appearance appearance;
     private Phone phone;
 
-    public PersonBuilder(String id){
+    public PersonBuilder(final String id) {
         this.id = id;
     }
 
-    public void withFio(Fio fio){
-        this.fio = fio;
+    public final void withFio(final Fio fios) {
+        this.fio = fios;
     }
 
-    public void withPhys(Physical phys){
-        this.phys = phys;
+    public final void withPhys(final Physical physs) {
+        this.phys = physs;
     }
 
-    public void withAppearance(Appearance appearence){
-        this.appearance = appearence;
+    public final void withAppearance(final Appearance appearences) {
+        this.appearance = appearences;
     }
 
-    public void withPhone(Phone phone){
-        this.phone = phone;
+    public final void withPhone(final Phone phones) {
+        this.phone = phones;
     }
 
-    public Person build(){
+    public final Person build() {
         final Person person = new Person();
         person.id = this.id;
         person.fio = this.fio;

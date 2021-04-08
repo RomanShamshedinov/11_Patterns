@@ -4,8 +4,6 @@ import person.appearance.Appearance;
 import person.appearance.EyesColor;
 import person.appearance.hair.Hair;
 
-import java.util.HashMap;
-
 public class AppearanceGenerator extends Generator<Appearance> {
 
     /**
@@ -16,7 +14,7 @@ public class AppearanceGenerator extends Generator<Appearance> {
      */
 
     @Override
-    protected Appearance develop(int code) {
+    protected Appearance develop(final int code) {
         final int i = code % 100 / 10;
         String eyes = EyesColor.getColorEyes(i);
         Hair hair = new Hair(Hair.getColor(i), i);
